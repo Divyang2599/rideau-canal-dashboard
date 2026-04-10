@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rideau Canal Skateway Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏒 Rideau Canal Skateway</h1>
+            <p class="subtitle">Real-Time Safety Monitoring System</p>
+            <div class="status-bar">
+                <span id="overall-status" class="overall-badge">Loading...</span>
+                <span id="last-updated">Last updated: --</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Location Cards -->
+        <section class="cards-section">
+            <h2>Current Conditions</h2>
+            <div class="cards-grid" id="sensor-cards">
+                <div class="card loading" id="card-dows-lake">
+                    <div class="card-header">
+                        <h3>Dow's Lake</h3>
+                        <span class="badge" id="badge-dows-lake">--</span>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="label">Ice Thickness</span>
+                            <span class="value" id="ice-dows-lake">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Surface Temp</span>
+                            <span class="value" id="temp-dows-lake">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Snow</span>
+                            <span class="value" id="snow-dows-lake">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">External Temp</span>
+                            <span class="value" id="ext-dows-lake">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Readings</span>
+                            <span class="value" id="count-dows-lake">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card loading" id="card-fifth-avenue">
+                    <div class="card-header">
+                        <h3>Fifth Avenue</h3>
+                        <span class="badge" id="badge-fifth-avenue">--</span>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="label">Ice Thickness</span>
+                            <span class="value" id="ice-fifth-avenue">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Surface Temp</span>
+                            <span class="value" id="temp-fifth-avenue">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Snow</span>
+                            <span class="value" id="snow-fifth-avenue">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">External Temp</span>
+                            <span class="value" id="ext-fifth-avenue">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Readings</span>
+                            <span class="value" id="count-fifth-avenue">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card loading" id="card-nac">
+                    <div class="card-header">
+                        <h3>NAC</h3>
+                        <span class="badge" id="badge-nac">--</span>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="label">Ice Thickness</span>
+                            <span class="value" id="ice-nac">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Surface Temp</span>
+                            <span class="value" id="temp-nac">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Snow</span>
+                            <span class="value" id="snow-nac">-- cm</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">External Temp</span>
+                            <span class="value" id="ext-nac">-- °C</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Readings</span>
+                            <span class="value" id="count-nac">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <h2>Historical Trends (Last Hour)</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Ice Thickness (cm)</h3>
+                    <canvas id="iceChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Surface Temperature (°C)</h3>
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Rideau Canal Skateway Monitoring System | NCC | Auto-refreshes every 30 seconds</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
