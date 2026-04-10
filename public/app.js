@@ -151,3 +151,4 @@ setInterval(() => {
         el.textContent = `Last updated: ${time} — refreshing in ${countdown}s`;
     }
 }, 1000);
+});
