@@ -134,8 +134,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchSensorData();
     fetchHistory();
     // Auto-refresh every 30 seconds
-    setInterval(() => {
-        fetchSensorData();
-        fetchHistory();
-    }, REFRESH_INTERVAL);
-});
+let countdown = 30;
+const countdownEl = document.getElementById('last-updated');
+
+setInterval(() => {
+    fetchSensorData();
+    fetchHistory();
+    countdown = 30;
+}, REFRESH_INTERVAL);
+
+setInterval(() => {
+    countdown--;
+    const el = document.getElementById('last-updated');
+    if (el) {
+        const time = new Date().toLocaleTimeString();
+        el.textContent = `Last updated: ${time} — refreshing in ${countdown}s`;
+    }
+}, 1000);
