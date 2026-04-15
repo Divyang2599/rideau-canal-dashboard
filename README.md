@@ -21,12 +21,12 @@ It shows live safety conditions at 3 locations along the canal. Data comes from 
 
 ## Technologies Used
 
-- **Node.js + Express** — backend server that talks to Cosmos DB
-- **@azure/cosmos** — official Azure SDK to query Cosmos DB
-- **Chart.js** — draws the line charts
-- **HTML/CSS/JavaScript** — frontend, no frameworks needed
-- **Azure App Service** — hosts the app live on the internet
-- **GitHub Actions** — automatically deploys when you push to main
+- **Node.js + Express** - backend server that talks to Cosmos DB
+- **@azure/cosmos** - official Azure SDK to query Cosmos DB
+- **Chart.js** - draws the line charts
+- **HTML/CSS/JavaScript** - frontend, no frameworks needed
+- **Azure App Service** - hosts the app live on the internet
+- **GitHub Actions** - automatically deploys when you push to main
 
 ---
 
