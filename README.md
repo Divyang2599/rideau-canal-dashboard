@@ -57,11 +57,13 @@ cp .env.example .env
 
 Fill in your real values:
 
+```
 COSMOS_ENDPOINT=https://your-cosmos-account.documents.azure.com:443/
 COSMOS_KEY=your-primary-key
 COSMOS_DATABASE=RideauCanalDB
 COSMOS_CONTAINER=SensorAggregations
 PORT=3000
+```
 
 Get these from: Azure Portal → Cosmos DB → Keys.
 
@@ -80,9 +82,11 @@ Open your browser at `http://localhost:3000`
 ## API Endpoints
 
 ### GET /api/sensors
+
 Returns the latest 5-minute aggregation for all 3 locations.
 
 **Example response:**
+
 ```json
 {
   "success": true,
@@ -102,30 +106,36 @@ Returns the latest 5-minute aggregation for all 3 locations.
 ```
 
 ### GET /api/history/:location
+
 Returns all aggregations from the last hour for a specific location.
 
 **Example:** `GET /api/history/dows-lake`
 
 ### GET /health
+
 Returns server health status. Used by Azure App Service to check if the app is running.
 
 ---
 
 ## Deployment to Azure App Service
 
-### Step 1 — Create App Service
+### Step 1 - Create App Service
+
 - Runtime: Node 20 LTS
 - OS: Linux
 - Pricing: Free F1
 
-### Step 2 — Set Environment Variables
+### Step 2 - Set Environment Variables
+
 In App Service → Environment variables, add:
+
 - `COSMOS_ENDPOINT`
 - `COSMOS_KEY`
 - `COSMOS_DATABASE`
 - `COSMOS_CONTAINER`
 
-### Step 3 — Connect GitHub for Auto-Deploy
+### Step 3 - Connect GitHub for Auto-Deploy
+
 App Service → Deployment Center → GitHub → select your repo and main branch.
 
 Every time you push to main, GitHub Actions automatically builds and deploys.
@@ -134,13 +144,13 @@ Every time you push to main, GitHub Actions automatically builds and deploys.
 
 ## Dashboard Features
 
-**3 Location Cards** — one for each sensor location. Each card shows all 5 metrics and a color-coded safety badge.
+**3 Location Cards** - one for each sensor location. Each card shows all 5 metrics and a color-coded safety badge.
 
-**Overall Status Badge** — shows the worst condition across all 3 locations. If any one location is Unsafe, the whole system shows Unsafe.
+**Overall Status Badge** - shows the worst condition across all 3 locations. If any one location is Unsafe, the whole system shows Unsafe.
 
-**Auto-Refresh** — fetches new data from the API every 30 seconds without needing a page reload.
+**Auto-Refresh** - fetches new data from the API every 30 seconds without needing a page reload.
 
-**Historical Charts** — two Chart.js line charts showing ice thickness and surface temperature trends over the last hour for all 3 locations.
+**Historical Charts** - two Chart.js line charts showing ice thickness and surface temperature trends over the last hour for all 3 locations.
 
 ---
 
